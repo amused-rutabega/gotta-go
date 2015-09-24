@@ -1,4 +1,7 @@
-angular.module('gotta-go', ['uiGmapgoogle-maps'])
+angular.module('gotta-go', [
+  'uiGmapgoogle-maps',
+  'gotta-go.map'  
+])
 
 .config(['uiGmapGoogleMapApiProvider',
   function (GoogleMapApiProvider) {
