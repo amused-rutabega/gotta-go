@@ -1,13 +1,21 @@
 var request = require('supertest');
+require = require('really-need');
+
 describe('loading express', function() {
   var server;
 
-  beforeEach(function() {
-    server = require('./server');
+  beforeEach(function beforeEachTest() {
+    /* Using "really-need" module to prevent node module
+       system to cache javscript files by default to 
+       avoid loading and compiling the same files mutiple times.
+       Doing this will ensure each test to start with a 
+       fresh server.
+    */
+    server = require('./server', {bustCache: true});
   });
 
-  afterEach(function() {
-    server.close();
+  afterEach(function afterEachTest(done) {
+    server.close(done);
   });
 
   it('should respond to /', function testHomePage(done) {
