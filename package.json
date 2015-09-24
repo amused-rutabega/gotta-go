@@ -1,0 +1,31 @@
+{
+  "name": "thesecrettoiletsofsf",
+  "version": "1.0.0",
+  "description": "[![Stories in Ready](https://badge.waffle.io/amused-rutabega/thesecrettoiletsofsf.png?label=ready&title=Ready)](https://waffle.io/amused-rutabega/thesecrettoiletsofsf) # thesecrettoiletsofsf",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "mocha -R spec spec/ServerSpec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianleungwh/thesecrettoiletsofsf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianleungwh/thesecrettoiletsofsf/issues"
+  },
+  "homepage": "https://github.com/brianleungwh/thesecrettoiletsofsf#readme",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "really-need": "^1.6.3",
+    "supertest": "^1.1.0"
+  }
+}
