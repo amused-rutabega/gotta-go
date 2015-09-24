@@ -23,6 +23,7 @@
   "dependencies": {
     "angular": "~1.4.6",
     "angular-google-maps": "~2.2.1",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-mocks": "~1.4.6"
   }
 }
