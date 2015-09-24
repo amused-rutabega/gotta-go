@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/amused-rutabega/thesecrettoiletsofsf.png?label=ready&title=Ready)](https://waffle.io/amused-rutabega/thesecrettoiletsofsf)
 # thesecrettoiletsofsf
 
-> Pithy project description ====TODO====
+> An app that finds you all the closest free public toilets.
 
 ## Team
 
