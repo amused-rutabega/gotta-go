@@ -7,7 +7,7 @@ describe('Routing', function () {
   }));
 
   it('should have "/" route', function () {
-    expect($state.get('home')).to.be.ok();
+    expect($state.get('home')).to.be.ok;
   });
 
 });

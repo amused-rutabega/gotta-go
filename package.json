@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon server/server.js",
-    "test": "mocha -R spec spec/ServerSpec.js"
+    "test": "mocha -R spec spec/ServerSpec.js && karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,13 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
-    "mocha": "^2.3.3",
+    "karma": "^0.13.10",
+    "karma-chai": "^0.1.0",
+    "karma-cli": "0.0.4",
+    "karma-mocha": "^0.1.4",
+    "karma-nested-reporter": "^0.1.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "mocha": "^1.20.1",
     "really-need": "^1.6.3",
     "supertest": "^1.1.0"
   }

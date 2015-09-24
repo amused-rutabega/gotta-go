@@ -3,6 +3,14 @@
 describe('Map', function () {
   var $scope, $rootScope, uiGmapGoogleMapApi, mapController, createController;
 
+  before(function () {
+    if (!navigator.geolocation) {
+      navigator.geolocation = {
+        getCurrentPosition: function () {}
+      };
+    }
+  });
+
   beforeEach(module('gotta-go'));
 
   beforeEach(inject(function ($injector) {
@@ -23,6 +31,7 @@ describe('Map', function () {
 
   it('should get the current coordinates of the user', function () {
     var original = navigator.geolocation.getCurrentPosition;
+
     var position;
 
     navigator.geolocation.getCurrentPosition = function (cb) {
