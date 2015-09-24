@@ -17,11 +17,11 @@ app.use(morgan('dev'));
 // Serve client files
 app.use(express.static(__dirname + '/../client'));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.status(200).sendFile('./client/index.html');
 });
 
-var server = app.listen(app.get('port'), function() {
+var server = app.listen(app.get('port'), function () {
   var port = server.address().port;
   console.log('listening on port ' + port);
 });
