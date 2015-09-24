@@ -18,7 +18,7 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client'));
 
 app.get('/', function(req, res) {
-  res.status(200).send('ok');
+  res.status(200).send('/index.html');
 });
 
 var server = app.listen(app.get('port'), function() {
