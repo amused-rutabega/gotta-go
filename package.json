@@ -4,7 +4,8 @@
   "description": "[![Stories in Ready](https://badge.waffle.io/amused-rutabega/thesecrettoiletsofsf.png?label=ready&title=Ready)](https://waffle.io/amused-rutabega/thesecrettoiletsofsf) # thesecrettoiletsofsf",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js",
+    "test": "mocha -R spec spec/ServerSpec.js"
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,7 @@ describe('loading express', function() {
        Doing this will ensure each test to start with a 
        fresh server.
     */
-    server = require('./server', {bustCache: true});
+    server = require(__dirname + '/../server/server', {bustCache: true});
   });
 
   afterEach(function afterEachTest(done) {
