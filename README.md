@@ -45,7 +45,7 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap at [waffle](https://badge.waffle.io/amused-rutabega/thesecrettoiletsofsf.png?label=ready&title=Ready)](https://waffle.io/amused-rutabega/thesecrettoiletsofsf)
 
 
 ## Contributing
