@@ -1,0 +1,29 @@
+{
+  "name": "gotta-go",
+  "version": "0.0.1",
+  "homepage": "https://github.com/amused-rutabega/thesecrettoiletsofsf",
+  "authors": [
+    "Brandon Borders <brandon@camelcased.com>",
+    "Andrew Nickell <nickell.andrew@gmail.com>",
+    "Brian Leung <bleungwh@gmail.com>"
+  ],
+  "main": "client/index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-google-maps": "~2.2.1",
+    "angular-ui-router": "~0.2.15",
+    "angular-mocks": "~1.4.6"
+  }
+}
