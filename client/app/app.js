@@ -22,8 +22,7 @@ angular.module('gotta-go', [
     // });
 
     GoogleMapApiProvider.configure({
-      key: GOOGLE_API_KEY,
-      libraries: 'visualization'
+      key: GOOGLE_API_KEY
     });
   }
 ]);

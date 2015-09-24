@@ -9,16 +9,19 @@ angular.module('gotta-go.map', [])
     };
 
     $scope.map = {
-      center: $scope.location, 
+      center: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      },
       zoom: 16
     };
 
-    uiGmapGoogleMapApi.then(function (maps, map) {
+    uiGmapGoogleMapApi.then(function (maps) {
       var marker = $scope.location;
       marker.id = 1;
       marker.icon = {
         path: maps.SymbolPath.CIRCLE,
-        scale: 10
+        scale: 7
       };
       $scope.markers = [marker];
     });
