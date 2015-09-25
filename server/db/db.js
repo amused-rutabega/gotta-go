@@ -28,6 +28,6 @@ var Toilet = sequelize.define('toilet', {
 });
 
 Toilet.sync().then(function () {
-})
+});
 
 exports.Toilet = Toilet;

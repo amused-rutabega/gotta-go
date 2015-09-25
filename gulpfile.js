@@ -18,9 +18,8 @@ gulp.task('client-tests', function (done) {
 gulp.task('linter', function () {
   return gulp.src(['client/app/**/*.js', 'server/**/*.js', 'spec/**/*.js'])
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('default', ['linter', 'server-tests', 'client-tests'], function () {
-
-});
+gulp.task('default', ['linter', 'server-tests', 'client-tests']);
