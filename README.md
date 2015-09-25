@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/amused-rutabega/thesecrettoiletsofsf.png?label=TO%20DO&title=Ready)](https://waffle.io/amused-rutabega/thesecrettoiletsofsf)
+[![Travis CI](https://travis-ci.org/amused-rutabega/thesecrettoiletsofsf.svg)](https://travis-ci.org/amused-rutabega/thesecrettoiletsofsf)
 # thesecrettoiletsofsf
 
 > An app that finds you all the closest free public toilets.
