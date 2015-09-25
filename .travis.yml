@@ -14,3 +14,4 @@ deploy:
   app: gotta-go-sf
   on:
     repo: amused-rutabega/thesecrettoiletsofsf
+    branch: master
