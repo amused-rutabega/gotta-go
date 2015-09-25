@@ -1,7 +1,7 @@
 // Test to see if it properly detects browser support for geolocation
 
 describe('Map', function () {
-  var $scope, $rootScope, uiGmapGoogleMapApi, mapController, createController;
+  var $scope, $rootScope, uiGmapGoogleMapApi, createController;
 
   before(function () {
     if (!navigator.geolocation) {

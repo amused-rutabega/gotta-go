@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var Server = require('karma').Server;
+var jshint = require('gulp-jshint');
 
 gulp.task('server-tests', function () {
   return gulp.src('spec/ServerSpec.js', {read: false})
@@ -14,6 +15,12 @@ gulp.task('client-tests', function (done) {
   }, done).start();
 });
 
-gulp.task('default', ['server-tests', 'client-tests'], function () {
+gulp.task('linter', function () {
+  return gulp.src(['client/app/**/*.js', 'server/**/*.js', 'spec/**/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+gulp.task('default', ['linter', 'server-tests', 'client-tests'], function () {
 
 });
