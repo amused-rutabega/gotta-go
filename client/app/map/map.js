@@ -25,5 +25,22 @@ angular.module('gotta-go.map', [])
       };
       $scope.markers = [marker];
     });
+
+    $scope.toilets = [
+      {
+        id: 0,
+        coords: {
+          latitude: 37.7827097,
+          longitude: -122.4080675
+        }
+      },
+      {
+        id: 1,
+        coords: {
+          latitude: 37.7847097,
+          longitude: -122.4080675
+        }
+      },
+    ];
   });
 });
