@@ -5,6 +5,9 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
+// Import our helpers
+var toilets = require('./toilets.js');
+
 // Create an express application
 var app = express();
 
@@ -19,6 +22,13 @@ app.use(express.static(__dirname + '/../client'));
 
 app.get('/', function (req, res) {
   res.status(200).sendFile('./client/index.html');
+});
+
+app.get('/api/toilets', function (req, res) {
+  toilets.getToilets(req, function (data) {
+    res.json(data);
+  })
+  // do some stuff
 });
 
 var server = app.listen(app.get('port'), function () {

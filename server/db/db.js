@@ -18,6 +18,7 @@ var sequelize = new Sequelize('toilets', 'Drew', '', {
 
 });
 
+//our dummy data doesn't have createdAt and updatedAt properties
 var Toilet = sequelize.define('toilet', {
   latitude: 'decimal',
   longitude: 'decimal',
