@@ -1,5 +1,5 @@
 var request = require('supertest');
-require = require('really-need');
+var reallyNeed = require('really-need');
 
 describe('loading express', function () {
   var server;
@@ -11,7 +11,7 @@ describe('loading express', function () {
        Doing this will ensure each test to start with a 
        fresh server.
     */
-    server = require(__dirname + '/../server/server', {bustCache: true});
+    server = reallyNeed(__dirname + '/../server/server', {bustCache: true});
   });
 
   afterEach(function (done) {
