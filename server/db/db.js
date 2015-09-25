@@ -1,3 +1,9 @@
+// brew install postgresql
+// "psql" for cli interface
+// in psql "CREATE DATABASE toilets"
+// in psql "\c toilets"
+// in psql "\i {{currentPath}}/server/db/schema.sql" to load dummy data 
+
 var Sequelize = require('sequelize');
 
 var sequelize = new Sequelize('toilets', 'Drew', '', {
@@ -18,7 +24,7 @@ var Toilet = sequelize.define('toilet', {
   title: 'text'
 });
 
-Toilet.sync({}).then(function () {
+Toilet.sync().then(function () {
 })
 
 exports.Toilet = Toilet;
