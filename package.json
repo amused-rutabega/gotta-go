@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon server/server.js",
-    "test": "mocha -R spec spec/ServerSpec.js && karma start karma.conf.js"
+    "test": "mocha -R spec spec/ServerSpec.js && karma start karma.conf.js",
+    "postinstall": "npm install -g bower && bower install && cp client/config.example.js client/config.js"
   },
   "repository": {
     "type": "git",
