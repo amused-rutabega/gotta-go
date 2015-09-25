@@ -23,6 +23,8 @@ var Toilet = sequelize.define('toilet', {
   latitude: 'decimal',
   longitude: 'decimal',
   title: 'text'
+}, {
+  timestamps: false
 });
 
 Toilet.sync().then(function () {
