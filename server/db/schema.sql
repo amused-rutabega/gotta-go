@@ -10,42 +10,42 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: cube; Type: EXTENSION; Schema: -; Owner: 
+-- Name: cube; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS cube WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION cube; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION cube; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION cube IS 'data type for multidimensional cubes';
 
 
 --
--- Name: earthdistance; Type: EXTENSION; Schema: -; Owner: 
+-- Name: earthdistance; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS earthdistance WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION earthdistance; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION earthdistance; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION earthdistance IS 'calculate great-circle distances on the surface of the Earth';
@@ -58,7 +58,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: toilets; Type: TABLE; Schema: public; Tablespace: 
+-- Name: toilets; Type: TABLE; Schema: public; Tablespace:
 --
 
 CREATE TABLE toilets (
@@ -219,7 +219,7 @@ SELECT pg_catalog.setval('toilets_id_seq', 230, true);
 
 
 --
--- Name: toilets_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
+-- Name: toilets_pkey; Type: CONSTRAINT; Schema: public; Tablespace:
 --
 
 ALTER TABLE ONLY toilets
