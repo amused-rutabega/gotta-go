@@ -58,7 +58,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: toilets; Type: TABLE; Schema: public; Owner: student; Tablespace: 
+-- Name: toilets; Type: TABLE; Schema: public; Tablespace: 
 --
 
 CREATE TABLE toilets (
@@ -68,11 +68,8 @@ CREATE TABLE toilets (
     title text
 );
 
-
-ALTER TABLE toilets OWNER TO student;
-
 --
--- Name: toilets_id_seq; Type: SEQUENCE; Schema: public; Owner: student
+-- Name: toilets_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE toilets_id_seq
@@ -82,25 +79,22 @@ CREATE SEQUENCE toilets_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE toilets_id_seq OWNER TO student;
-
 --
--- Name: toilets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: student
+-- Name: toilets_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE toilets_id_seq OWNED BY toilets.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: student
+-- Name: id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY toilets ALTER COLUMN id SET DEFAULT nextval('toilets_id_seq'::regclass);
 
 
 --
--- Data for Name: toilets; Type: TABLE DATA; Schema: public; Owner: student
+-- Data for Name: toilets; Type: TABLE DATA; Schema: public;
 --
 
 COPY toilets (id, latitude, longitude, title) FROM stdin;
@@ -218,14 +212,14 @@ COPY toilets (id, latitude, longitude, title) FROM stdin;
 
 
 --
--- Name: toilets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: student
+-- Name: toilets_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('toilets_id_seq', 230, true);
 
 
 --
--- Name: toilets_pkey; Type: CONSTRAINT; Schema: public; Owner: student; Tablespace: 
+-- Name: toilets_pkey; Type: CONSTRAINT; Schema: public; Tablespace: 
 --
 
 ALTER TABLE ONLY toilets
@@ -233,12 +227,10 @@ ALTER TABLE ONLY toilets
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: student
+-- Name: public; Type: ACL; Schema: -;
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM student;
-GRANT ALL ON SCHEMA public TO student;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
@@ -246,3 +238,6 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
+-- Example query for finding within a radius of 1km
+# latitude, longitude to earth, radius (in meters) @> ( we should look that up)
+SELECT toilets.id, toilets.title FROM toilets WHERE earth_box(ll_to_earth(37.783709699999996, -122.40906749999998), 1000) @> ll_to_earth(toilets.latitude, toilets.longitude);
