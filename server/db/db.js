@@ -6,8 +6,8 @@
 
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('toilets', 'Drew', '', {
-  host: 'localhost',
+var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
+  host: process.env.DATABASE_SERVER,
   dialect: 'postgres',
 
   pool: {
