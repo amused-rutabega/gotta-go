@@ -30,7 +30,7 @@ module.exports = function (config) {
       'client/app/**/*.js',
 
       // our spec files
-      'spec/client/**/*.js'
+      'spec/Client/**/*.js'
     ],
 
 
