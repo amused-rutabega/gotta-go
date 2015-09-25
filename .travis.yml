@@ -6,4 +6,5 @@ node_js:
 before_script:
   - npm install -g gulp bower
   - bower install
+  - cp client/config.example.js client/config.js
 script: gulp
