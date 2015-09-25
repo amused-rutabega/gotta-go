@@ -25,6 +25,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/toilets', function (req, res) {
+  toilets.getToilets(req, function (data) {
+    res.json(data);
+  })
   // do some stuff
 });
 
