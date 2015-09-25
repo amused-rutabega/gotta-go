@@ -3,9 +3,7 @@ node_js:
 - '0.10'
 - 4.1.1
 before_script:
-- npm install -g gulp bower
-- bower install
-- cp client/config.example.js client/config.js
+- npm install -g gulp
 script: gulp
 deploy:
   provider: heroku
