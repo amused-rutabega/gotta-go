@@ -1,11 +1,11 @@
 angular.module('gotta-go.map', [])
 
-.controller('MapController', function ($scope, uiGmapGoogleMapApi) {
+.controller('MapController', function ($scope, uiGmapIsReady) {
   // TODO: Check to see if browser supports geolocation
   navigator.geolocation.getCurrentPosition(function (position) {
     $scope.location = {
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
     };
 
     $scope.map = {
@@ -16,14 +16,15 @@ angular.module('gotta-go.map', [])
       zoom: 16
     };
 
-    uiGmapGoogleMapApi.then(function (maps) {
-      var marker = $scope.location;
-      marker.id = 1;
-      marker.icon = {
-        path: maps.SymbolPath.CIRCLE,
-        scale: 7
-      };
-      $scope.markers = [marker];
+    uiGmapIsReady.promise().then(function (instances) {
+      var map = instances[0].map;
+
+      var marker = new MarkerWithLabel({
+        position: $scope.location,
+        icon: ' ',
+        map: map,
+        labelContent: '<i class="material-icons" style="color: #4285F4;">radio_button_checked</i>'
+      });
     });
 
     $scope.toilets = [
