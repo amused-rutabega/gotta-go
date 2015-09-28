@@ -1,28 +1,51 @@
 angular.module('gotta-go.map', [])
 
-.controller('MapController', function ($scope, uiGmapIsReady) {
-  // TODO: Check to see if browser supports geolocation
-  navigator.geolocation.getCurrentPosition(function (position) {
-    $scope.location = {
+.controller('MapController', function ($scope, uiGmapIsReady, $rootScope) {
+  var marker;
+  navigator.geolocation.watchPosition(function (position) {
+    $rootScope.location = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
 
-    $scope.map = {
-      center: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
-      },
-      zoom: 16
-    };
+    if (marker) {
+      marker.setMap(null);
 
-    uiGmapIsReady.promise().then(function (instances) {
-      var map = instances[0].map;
-
-      var marker = new MarkerWithLabel({
+      marker = new MarkerWithLabel({
         position: $scope.location,
         icon: ' ',
-        map: map,
+        map: $scope.map,
+        labelContent: '<i class="material-icons" style="color: #4285F4;">radio_button_checked</i>'
+      });
+
+      marker.setMap($scope.map);
+    }
+  }, null, {
+    enableHighAccuracy: true,
+    maximumAge: 2000
+  });
+
+  // TODO: Check to see if browser supports geolocation
+  navigator.geolocation.getCurrentPosition(function (position) {
+    $rootScope.location = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+    $rootScope.center = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    };
+
+    $rootScope.zoom = 16;
+
+    uiGmapIsReady.promise().then(function (instances) {
+      $rootScope.map = instances[0].map;
+
+      marker = new MarkerWithLabel({
+        position: $scope.location,
+        icon: ' ',
+        map: $scope.map,
         labelContent: '<i class="material-icons" style="color: #4285F4;">radio_button_checked</i>'
       });
     });
