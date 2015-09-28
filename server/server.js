@@ -17,6 +17,16 @@ app.set('port', process.env.PORT || 8080);
 // Mount middleware
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+
+app.use(function (req, res, next) {
+  if (process.env.NODE_ENV === 'production' && req.baseUrl === '/config.js') {
+    res.set('Content-Type', 'text/javascript');
+    res.send('var GOOGLE_API_KEY = ' + process.env.GOOGLE_KEY + ';');
+  } else {
+    next();
+  }
+});
+
 // Serve client files
 app.use(express.static(__dirname + '/../client'));
 
