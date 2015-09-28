@@ -24,7 +24,7 @@ describe('loading express', function () {
       .expect(200, done);
   });
 
-  xit('should respond to /api/toilets and return toilets in json format', function (done) {
+  it('should respond to /api/toilets and return toilets in json format', function (done) {
     request(server)
       .get('/api/toilets')
       .query({ latitude: 37.7827097 })

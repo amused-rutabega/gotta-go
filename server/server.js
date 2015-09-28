@@ -25,10 +25,14 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/toilets', function (req, res) {
+  console.log(req.query);
   toilets.getToilets(req, function (data) {
     res.json(data);
   });
-  // do some stuff
+});
+
+app.post('/api/toilets', function (req, res) {
+
 });
 
 var server = app.listen(app.get('port'), function () {

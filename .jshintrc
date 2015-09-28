@@ -24,6 +24,7 @@
         "it": false,
         "afterEach": false,
         "angular": false,
-        "GOOGLE_API_KEY": false
+        "GOOGLE_API_KEY": false,
+        "xit": false
     }
 }
