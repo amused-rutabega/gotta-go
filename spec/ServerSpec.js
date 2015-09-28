@@ -24,9 +24,89 @@ describe('loading express', function () {
       .expect(200, done);
   });
 
+  xit('should respond to /api/toilets and return toilets in json format', function (done) {
+    request(server)
+      .get('/api/toilets')
+      .query({ latitude: 37.7827097 })
+      .query({ longitude: -122.4080675})
+      .query({ radius: 100 })
+      .expect('Content-type', /json/)
+      .expect(200, done);
+  });
+
+  xit('should allow data to be posted to /api/toilets given correct format', function (done) {
+    var postBody = {
+      position: {
+        latitude: 78,
+        longitude: -122
+      },
+      ratings: {
+        cleanliness: 5,
+        privacy: 4
+      }
+    };
+    request(server)
+      .post('/api/toilets')
+      .send(postBody)
+      .expect(201, done);
+  });
+
+  xit('should reject post to /api/toilets if post body is not valid', function (done) {
+    var postBody = {
+      aettqr: {
+        latitude: 78,
+        longitude: -122
+      },
+      fhyen: {
+        cleanliness: 5,
+        privacy: 4
+      }
+    };
+    request(server)
+      .post('/api/toilets')
+      .send(postBody)
+      .expect(400, done);
+  });
+
+  xit('should reject post to /api/toilets if coordinates are not valid', function (done) {
+    var postBody = {
+      position: {
+        latitude: 'abbff',
+        longitude: '255&^^$@'
+      },
+      ratings: {
+        cleanliness: 5,
+        privacy: 4
+      }
+    };
+    request(server)
+      .post('/api/toilets')
+      .send(postBody)
+      .expect(400, done);
+  });
+
+  xit('should accept put to /api/toilets if put body is valid', function (done) {
+    var putBody = {
+      position: {
+        latitude: 78,
+        longitude: -122
+      },
+      ratings: {
+        cleanliness: 5,
+        privacy: 4
+      }
+    };
+    request(server)
+      .put('/api/toilets')
+      .query({ id: 5 })
+      .send(putBody)
+      .expect(201, done);
+  });
+
   it('shoud 404 everything else', function (done) {
     request(server)
       .get('/some/path/')
       .expect(404, done);
   });
+
 });
