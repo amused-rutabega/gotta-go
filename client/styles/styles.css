@@ -21,4 +21,24 @@ html, body {
   display: inline;
   position: absolute;
   z-index: 1;
+  width: 100%;
+  bottom: 20px;
+}
+
+.btn-floating {
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  left: 25%;
+}
+
+.btn-floating i {
+  line-height: 45px;
+}
+
+.row {
+  margin-bottom: 5px;
 }
