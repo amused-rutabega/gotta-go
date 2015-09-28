@@ -1,3 +1,5 @@
+// jshint expr:true
+
 describe('Layout', function () {
   var $scope, $rootScope, createController;
 

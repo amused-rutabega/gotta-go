@@ -70,7 +70,7 @@ describe('Map', function () {
 
     createController();
 
-    original = navigator.geolocation.watchPosition;
+    var original = navigator.geolocation.watchPosition;
 
     navigator.geolocation.watchPosition = function (cb) {
       position = {
