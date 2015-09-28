@@ -12,7 +12,7 @@ var toilets = require('./toilets.js');
 var app = express();
 
 // Set the port
-app.set('port', 8080);
+app.set('port', process.env.PORT || 8080);
 
 // Mount middleware
 app.use(bodyParser.json());
