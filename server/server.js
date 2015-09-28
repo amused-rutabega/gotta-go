@@ -20,6 +20,7 @@ app.use(morgan('dev'));
 // Serve client files
 app.use(express.static(__dirname + '/../client'));
 
+// Serve app page
 app.get('/', function (req, res) {
   res.status(200).sendFile('./client/index.html');
 });
@@ -28,7 +29,27 @@ app.get('/api/toilets', function (req, res) {
   toilets.getToilets(req, function (data) {
     res.json(data);
   });
-  // do some stuff
+});
+
+app.post('/api/toilets', function (req, res) {
+  toilets.addToilet(req, function (success, message) {
+    if (success) {
+      res.status(201).json({ message: message });
+    } else {
+      res.status(400).json({ message: message });
+    }
+  });
+});
+
+
+app.put('/api/toilets/:id', function (req, res) {
+  toilets.updateToilet(req, function (success, message) {
+    if (success) {
+      res.status(201).json({ message: message });
+    } else {
+      res.status(400).json({ message: message });
+    }
+  });
 });
 
 var server = app.listen(app.get('port'), function () {
