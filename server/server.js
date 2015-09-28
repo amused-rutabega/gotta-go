@@ -43,9 +43,7 @@ app.post('/api/toilets', function (req, res) {
 });
 
 
-app.put('/api/toilets', function (req, res) {
-  // toilet id is submitted as a query
-  // put body is same as post body
+app.put('/api/toilets/:id', function (req, res) {
   toilets.updateToilet(req, function (success, message) {
     if (success) {
       res.status(201).json({ message: message });

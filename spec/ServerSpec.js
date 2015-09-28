@@ -97,8 +97,7 @@ describe('loading express', function () {
       }
     };
     request(server)
-      .put('/api/toilets')
-      .query({ id: 5 })
+      .put('/api/toilets/5')
       .send(putBody)
       .expect(201, done);
   });
@@ -115,7 +114,7 @@ describe('loading express', function () {
       }
     };
     request(server)
-      .put('/api/toilets')
+      .put('/api/toilets/3')
       .send(putBody)
       .expect(400, done);
   });
@@ -132,7 +131,7 @@ describe('loading express', function () {
       }
     };
     request(server)
-      .put('/api/toilets')
+      .put('/api/toilets/4')
       .send(putBody)
       .expect(400, done);
   });

@@ -15,8 +15,8 @@ var isValid = function (lat, lon){
 
 exports.getToilets = function (req, cb) {
   if(req.query.latitude && req.query.longitude && req.query.radius) {
-    var lat = req.query.latitude;
-    var long = req.query.longitude;
+    var latitude = req.query.latitude;
+    var longitude = req.query.longitude;
     var r = req.query.radius;
     if (isValid(lat, long)) {
       // TODO: query database and return real data
@@ -31,8 +31,8 @@ exports.getToilets = function (req, cb) {
 
 exports.addToilet = function (req, cb) {
   if (req.body.hasOwnProperty('position') && req.body.hasOwnProperty('ratings')) {
-    var lat = req.body.position.latitude;
-    var long = req.body.position.longitude;
+    var latitude = req.body.position.latitude;
+    var longitude = req.body.position.longitude;
     if (isValid(lat, long)) {
       // TODO: add toilet to database
       cb(true, 'toilet added');
@@ -45,10 +45,10 @@ exports.addToilet = function (req, cb) {
 };
 
 exports.updateToilet = function (req, cb) {
-  if (req.query.hasOwnProperty('id')) {
+  if (req.params.hasOwnProperty('id')) {
     if (req.body.hasOwnProperty('position') && req.body.hasOwnProperty('ratings')) {
-      var lat = req.body.position.latitude;
-      var long = req.body.position.longitude;
+      var latitude = req.body.position.latitude;
+      var longitude = req.body.position.longitude;
       if (isValid(lat, long)) {
         // TODO: query db and update entry
         cb(true, 'toilet updated');
