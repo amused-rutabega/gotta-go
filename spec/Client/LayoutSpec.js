@@ -25,10 +25,32 @@ describe('Layout', function () {
     };
   }));
 
-  it('should have a method that centers the map on the current location of the user', function () {
-    createController();
+  describe('Centering Map', function () {
+    it('should have a method that centers the map on the current location of the user', function () {
+      createController();
 
-    expect($scope.centerOnLocation).to.exist;
-    expect($scope.centerOnLocation).to.be.an.instanceOf(Function);
+      expect($scope.centerOnLocation).to.exist;
+      expect($scope.centerOnLocation).to.be.an.instanceOf(Function);
+    });
+
+    it('should center the map', function () {
+      createController();
+
+      $scope.map = {
+        panTo: function (location) {
+          $scope.center = location;
+        }
+      };
+
+      $scope.location = {
+        lat: 0,
+        lng: 0
+      };
+
+      $scope.centerOnLocation();
+
+      expect($scope.center.lat).to.equal(0);
+      expect($scope.center.lng).to.equal(0);
+    });
   });
 });
