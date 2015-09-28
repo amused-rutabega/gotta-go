@@ -20,7 +20,6 @@ app.use(morgan('dev'));
 
 app.use(function (req, res, next) {
   if (process.env.NODE_ENV === 'production' && req.url === '/config.js') {
-    console.log('configggggggggggggg');
     res.set('Content-Type', 'text/javascript');
     res.send('var GOOGLE_API_KEY = ' + process.env.GOOGLE_KEY + ';');
   } else {
