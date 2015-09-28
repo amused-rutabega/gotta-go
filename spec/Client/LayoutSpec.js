@@ -27,7 +27,8 @@ describe('Layout', function () {
 
   it('should have a method that centers the map on the current location of the user', function () {
     createController();
-    
+
     expect($scope.centerOnLocation).to.exist;
+    expect($scope.centerOnLocation).to.be.an.instanceOf(Function);
   });
 });
