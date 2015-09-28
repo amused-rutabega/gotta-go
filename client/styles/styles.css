@@ -16,3 +16,9 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+.overlay-controls {
+  display: inline;
+  position: absolute;
+  z-index: 1;
+}
