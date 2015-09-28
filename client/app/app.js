@@ -1,7 +1,8 @@
 angular.module('gotta-go', [
   'ui.router',
   'uiGmapgoogle-maps',
-  'gotta-go.map'  
+  'gotta-go.map',
+  'gotta-go.layout'
 ])
 
 .config(['uiGmapGoogleMapApiProvider', '$urlRouterProvider', '$stateProvider', '$locationProvider',

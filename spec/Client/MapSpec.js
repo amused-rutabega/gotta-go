@@ -6,7 +6,8 @@ describe('Map', function () {
   before(function () {
     if (!navigator.geolocation) {
       navigator.geolocation = {
-        getCurrentPosition: function () {}
+        getCurrentPosition: function () {},
+        watchPosition: function () {}
       };
     }
   });
@@ -47,8 +48,8 @@ describe('Map', function () {
 
     createController();
 
-    expect($scope.location.latitude).to.eql(position.coords.latitude);
-    expect($scope.location.longitude).to.eql(position.coords.longitude);
+    expect($scope.location.lat).to.eql(position.coords.latitude);
+    expect($scope.location.lng).to.eql(position.coords.longitude);
 
     navigator.geolocation.getCurrentPosition = original;
   });

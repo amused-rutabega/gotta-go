@@ -3,23 +3,48 @@
   <head>
     <title>Gotta Go</title>
 
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="/bower_components/Materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+
     <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 
     <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body ng-app="gotta-go">
-    <h1>You Gotta Go, When You Gotta Go</h1>
+    <div class="overlay-controls" ng-controller="LayoutController">
+      <div class="row">
+        <div class="col s9 l11">&nbsp;</div>
+        <div class="col s3 l1">
+          <a class="btn-floating waves-effect white" ng-click="centerOnLocation()"><i class="material-icons" style="color: #727272;">gps_fixed</i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s9 l11">&nbsp;</div>
+        <div class="col s3 l1">
+          <a class="btn-floating waves-effect waves-light"><i class="material-icons">add</i></a>
+        </div>
+      </div>
+    </div>
+    <div ui-view class="map-view"></div>
 
-    <div ui-view></div>
-
-    <script type="text/javascript" src="/bower_components/lodash/lodash.js"></script>
-    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/bower_components/lodash/lodash.min.js"></script>
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script type="text/javascript" src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script type="text/javascript" src="/bower_components/google-markerwithlabel/src/markerwithlabel.js"></script>
+
+    <!-- Remove this if we don't use materialize js components -->
+    <script type="text/javascript" src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+
     <script type="text/javascript" src="/config.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
     <script type="text/javascript" src="/app/map/map.js"></script>
+    <script type="text/javascript" src="/app/layout/layout.js"></script>
   </body>
 </html>
