@@ -3,12 +3,14 @@ angular.module('gotta-go.map', [])
 .controller('MapController', function ($scope, uiGmapIsReady, $rootScope) {
   var marker;
   navigator.geolocation.watchPosition(function (position) {
+    // Update current user's position
     $rootScope.location = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
 
     if (marker) {
+      // Redraw marker for current user
       marker.setMap(null);
 
       marker = new MarkerWithLabel({
@@ -22,16 +24,18 @@ angular.module('gotta-go.map', [])
     }
   }, null, {
     enableHighAccuracy: true,
-    maximumAge: 2000
+    maximumAge: 2000 // Sets the time in which the browser is allowed to cache the position (at most this number of ms)
   });
 
   // TODO: Check to see if browser supports geolocation
   navigator.geolocation.getCurrentPosition(function (position) {
+    // The current user's location
     $rootScope.location = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
 
+    // The point to have the camera center on
     $rootScope.center = {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
@@ -42,6 +46,7 @@ angular.module('gotta-go.map', [])
     uiGmapIsReady.promise().then(function (instances) {
       $rootScope.map = instances[0].map;
 
+      // Draw marker for current users's position
       marker = new MarkerWithLabel({
         position: $scope.location,
         icon: ' ',
@@ -50,6 +55,7 @@ angular.module('gotta-go.map', [])
       });
     });
 
+    // Dummy data for toilet markers
     $scope.toilets = [
       {
         id: 0,
