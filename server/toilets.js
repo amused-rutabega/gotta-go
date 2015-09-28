@@ -1,4 +1,4 @@
-var db = require('./db/db.js');
+// var db = require('./db/db.js');
 
 
 // Helper function to validate coordinates
@@ -18,7 +18,7 @@ exports.getToilets = function (req, cb) {
   if(req.query.latitude && req.query.longitude && req.query.radius) {
     var latitude = req.query.latitude;
     var longitude = req.query.longitude;
-    var r = req.query.radius;
+    // var r = req.query.radius;
     if (isValid(latitude, longitude)) {
       // TODO: query database and return real data
       cb([]);

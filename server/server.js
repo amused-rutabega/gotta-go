@@ -37,7 +37,7 @@ app.post('/api/toilets', function (req, res) {
     if (success) {
       res.status(201).json({ message: message });
     } else {
-      res.status(400).json({ message: message })
+      res.status(400).json({ message: message });
     }
   });
 });
