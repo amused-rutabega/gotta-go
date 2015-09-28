@@ -32,7 +32,6 @@ app.get('/api/toilets', function (req, res) {
 });
 
 app.post('/api/toilets', function (req, res) {
-  console.log('called');
   toilets.addToilet(req, function (success, message) {
     if (success) {
       res.status(201).json({ message: message });
