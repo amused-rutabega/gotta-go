@@ -20,19 +20,39 @@ app.use(morgan('dev'));
 // Serve client files
 app.use(express.static(__dirname + '/../client'));
 
+// Serve app page
 app.get('/', function (req, res) {
   res.status(200).sendFile('./client/index.html');
 });
 
 app.get('/api/toilets', function (req, res) {
-  console.log(req.query);
   toilets.getToilets(req, function (data) {
     res.json(data);
   });
 });
 
 app.post('/api/toilets', function (req, res) {
+  console.log('called');
+  toilets.addToilet(req, function (success, message) {
+    if (success) {
+      res.status(201).json({ message: message });
+    } else {
+      res.status(400).json({ message: message })
+    }
+  });
+});
 
+
+app.put('/api/toilets', function (req, res) {
+  // toilet id is submitted as a query
+  // put body is same as post body
+  toilets.updateToilet(req, function (success, message) {
+    if (success) {
+      res.status(201).json({ message: message });
+    } else {
+      res.status(400).json({ message: message });
+    }
+  });
 });
 
 var server = app.listen(app.get('port'), function () {
