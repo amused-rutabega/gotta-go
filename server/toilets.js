@@ -1,6 +1,7 @@
 var db = require('./db/db.js');
 var Toilet = db.Toilet;
 var sequelize = db.sequelize;
+var _ = require('underscore');
 
 // Helper function to validate coordinates
 // http://stackoverflow.com/questions/11475146/javascript-regex-to-validate-gps-coordinates
@@ -32,7 +33,24 @@ exports.getToilets = function (req, cb) {
         type: sequelize.QueryTypes.SELECT
       })
         .then(function (toilets) {
-          cb(toilets);
+          var formattedToilets = [];
+
+          toilets.forEach(function (toilet) {
+            toilet = {
+              id: toilet.id,
+
+              position: {
+                latitude: toilet.latitude,
+                longitude: toilet.longitude
+              },
+
+              ratings: _.omit(toilet, 'id', 'title', 'latitude', 'longitude', 'createdAt', 'updatedAt')
+            };
+
+            formattedToilets.push(toilet);
+          });
+
+          cb(formattedToilets);
         });
     } else {
       cb({ message: 'invalid coordinates given' });
@@ -53,6 +71,8 @@ exports.addToilet = function (req, cb) {
         longitude: longitude
       }).then(function (toilet) {
         toilet = {
+          id: toilet.id,
+
           position: {
             latitude: toilet.latitude,
             longitude: toilet.longitude
@@ -93,6 +113,8 @@ exports.updateToilet = function (req, cb) {
           .then(function (toilet) {
             if (toilet) {
               toilet = {
+                id: toilet.id,
+
                 position: {
                   latitude: latitude,
                   longitude: longitude
