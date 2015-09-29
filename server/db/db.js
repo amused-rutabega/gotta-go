@@ -27,6 +27,7 @@ var Toilet = sequelize.define('Toilet', {
   free: Sequelize.BOOLEAN
 });
 
+<<<<<<< HEAD
 Toilet.sync({force: true}).then(function () {
   // Inert dummy data
   for (var i = 0; i < dummyCoords.length; i += 1) {
@@ -46,9 +47,6 @@ Toilet.sync({force: true}).then(function () {
     });
   }
   console.log('database initialized and dummy data are loaded');
-
-  sequelize.query('CREATE EXTENSION IF NOT EXISTS cube;');
-  sequelize.query('CREATE EXTENSION IF NOT EXISTS earthdistance;');
 });
 
 exports.Toilet = Toilet;
