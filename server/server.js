@@ -14,6 +14,24 @@ var app = express();
 // Set the port
 app.set('port', process.env.PORT || 8080);
 
+var db = require('./db/db');
+
+// Before the server can handle any requests it must first sync the database.
+// This middleware ensures that the database has been synced before handling the
+// request
+var synced = false;
+app.use(function (req, res, next) {
+  if (!synced) {
+    db.sync().then(function () {
+      synced = true;
+
+      next();
+    });
+  } else {
+    next();
+  }
+});
+
 // Mount middleware
 app.use(bodyParser.json());
 app.use(morgan('dev'));
