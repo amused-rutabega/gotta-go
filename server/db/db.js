@@ -1,12 +1,6 @@
 var Sequelize = require('sequelize');
 var dummyCoords = require('./extractData');
 
-// process.env.DATABASE
-// process.env.DATABASE_USERNAME
-// process.env.DATABASE_PASSWORD
-// process.env.DATABASE_SERVER
-
-
 var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
   host: process.env.DATABASE_SERVER,
   dialect: 'postgres',
@@ -16,6 +10,9 @@ var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAM
     idle: 10000
   },
 });
+
+sequelize.query('CREATE EXTENSION IF NOT EXISTS cube;');
+sequelize.query('CREATE EXTENSION IF NOT EXISTS earthdistance;');
 
 var Toilet = sequelize.define('Toilet', {
   title: Sequelize.STRING,
@@ -52,3 +49,4 @@ Toilet.sync({force: true}).then(function () {
 });
 
 exports.Toilet = Toilet;
+exports.sequelize = sequelize;
