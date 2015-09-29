@@ -56,7 +56,7 @@ describe('loading express', function () {
             longitude: -122
           },
           ratings: {
-            
+
           }
         }
       }, done);
@@ -110,7 +110,19 @@ describe('loading express', function () {
     request(server)
       .put('/api/toilets/5')
       .send(putBody)
-      .expect(201, done);
+      .expect(201, {
+        message: 'toilet updated',
+        toilet: {
+          position: {
+            latitude: 78,
+            longitude: -122
+          },
+          ratings: {
+            cleanliness: 5,
+            privacy: 4
+          }
+        }
+      }, done);
   });
 
   it('should reject put to /api/toilets if put body is not valid', function (done) {
