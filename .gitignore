@@ -5,3 +5,6 @@ client/config.js
 
 build/
 dist/
+
+.bash_profile
+.zshrc

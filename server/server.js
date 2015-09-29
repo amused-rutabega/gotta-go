@@ -14,6 +14,24 @@ var app = express();
 // Set the port
 app.set('port', process.env.PORT || 8080);
 
+var db = require('./db/db');
+
+// Before the server can handle any requests it must first sync the database.
+// This middleware ensures that the database has been synced before handling the
+// request
+var synced = false;
+app.use(function (req, res, next) {
+  if (!synced) {
+    db.sync().then(function () {
+      synced = true;
+
+      next();
+    });
+  } else {
+    next();
+  }
+});
+
 // Mount middleware
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -42,9 +60,9 @@ app.get('/api/toilets', function (req, res) {
 });
 
 app.post('/api/toilets', function (req, res) {
-  toilets.addToilet(req, function (success, message) {
+  toilets.addToilet(req, function (success, message, data) {
     if (success) {
-      res.status(201).json({ message: message });
+      res.status(201).json({ message: message, toilet: data });
     } else {
       res.status(400).json({ message: message });
     }
@@ -53,9 +71,9 @@ app.post('/api/toilets', function (req, res) {
 
 
 app.put('/api/toilets/:id', function (req, res) {
-  toilets.updateToilet(req, function (success, message) {
+  toilets.updateToilet(req, function (success, message, data) {
     if (success) {
-      res.status(201).json({ message: message });
+      res.status(201).json({ message: message, toilet: data });
     } else {
       res.status(400).json({ message: message });
     }

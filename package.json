@@ -26,7 +26,8 @@
     "nodemon": "^1.7.0",
     "pg": "^4.4.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^3.9.0"
+    "sequelize": "^3.9.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^3.3.0",
