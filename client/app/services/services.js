@@ -31,7 +31,7 @@ angular.module('gotta-go.services', [])
       })
       .then(function (response) {
         return response.data;
-      })
+      });
     }
-  }
+  };
 });
