@@ -60,10 +60,10 @@ describe('loading express', function () {
           ratings: {
             accessibility: null,
             ambiance: null,
-            cleanliness: null,
+            cleanliness: 5,
             familyFriendliness: null,
             free: null,
-            privacy: null,
+            privacy: 4,
             rating: null
           }
         }
@@ -129,7 +129,12 @@ describe('loading express', function () {
           },
           ratings: {
             cleanliness: 5,
-            privacy: 4
+            privacy: 4,
+            accessibility: 5,
+            ambiance: 5,
+            familyFriendliness: 5,
+            free: true,
+            rating: 5
           }
         }
       }, done);

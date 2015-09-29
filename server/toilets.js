@@ -65,11 +65,15 @@ exports.addToilet = function (req, cb) {
     var latitude = req.body.position.latitude;
     var longitude = req.body.position.longitude;
 
+    var toilet = {};
+
+    _.extend(toilet, req.body.ratings, {
+      latitude: latitude,
+      longitude: longitude
+    });
+
     if (isValid(latitude, longitude)) {
-      Toilet.create({
-        latitude: latitude,
-        longitude: longitude
-      }).then(function (toilet) {
+      Toilet.create(toilet).then(function (toilet) {
         toilet = toilet.toJSON();
 
         toilet = {
@@ -102,10 +106,21 @@ exports.updateToilet = function (req, cb) {
         Toilet.find({where: {id: req.params.id}})
           .then(function (toilet) {
             if (toilet) {
-              return toilet.updateAttributes({
+              var toiletAttributes = {};
+
+              _.extend(toiletAttributes, req.body.ratings, {
                 latitude: latitude,
                 longitude: longitude
               });
+
+              return toilet.updateAttributes(toiletAttributes);
+            } else {
+              cb(false, 'toilet was not found');
+            }
+          })
+          .then(function (toilet) {
+            if (toilet) {
+              return Toilet.find({where: {id: toilet.id}});
             } else {
               cb(false, 'toilet was not found');
             }
