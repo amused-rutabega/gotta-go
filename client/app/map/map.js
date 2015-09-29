@@ -60,7 +60,7 @@ angular.module('gotta-go.map', [])
       3000 /* About half a mile */
     )
     .then(function (toilets) {
-      $scope.toilets = toilets;  
+      $scope.toilets = toilets;
     });
 
     // Dummy data for toilet markers

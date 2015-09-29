@@ -7,8 +7,8 @@ angular.module('gotta-go.services', [])
         method: 'GET',
         url: '/api/toilets' 
         + '?latitude=' + latitude 
-        + '?longitude=' + longitude 
-        + '?radius=' + radius
+        + '&longitude=' + longitude 
+        + '&radius=' + radius
       })
       .then(function (response) {
         return response.data;
