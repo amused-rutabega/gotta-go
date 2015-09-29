@@ -1,1 +1,1 @@
-window.GOOGLE_API_KEY = "YOUR_KEY_HERE";
+window.GOOGLE_API_KEY = "AIzaSyCko5NywZbvOOtbkvZ6ZsbOigsJHORjmV8";
