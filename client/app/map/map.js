@@ -55,7 +55,11 @@ angular.module('gotta-go.map', [])
       });
     });
 
-    Toilets.get().then(function (toilets) {
+    Toilets.get(position.coords.latitude, 
+      position.coords.longitude, 
+      3000 /* About half a mile */
+    )
+    .then(function (toilets) {
       $scope.toilets = toilets;  
     });
 
