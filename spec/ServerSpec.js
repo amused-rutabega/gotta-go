@@ -54,8 +54,8 @@ describe('loading express', function () {
           id: 111,
 
           position: {
-            latitude: "78",
-            longitude: "-122"
+            latitude: '78',
+            longitude: '-122'
           },
           ratings: {
             accessibility: null,
