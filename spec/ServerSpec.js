@@ -6,7 +6,7 @@ describe('loading express', function () {
 
   beforeEach(function () {
     /* Using "really-need" module to prevent node module
-       system to cache javscript files by default to
+       system to cache javascript files by default to
        avoid loading and compiling the same files mutiple times.
        Doing this will ensure each test to start with a
        fresh server.
@@ -52,7 +52,7 @@ describe('loading express', function () {
         message: 'toilet added',
         toilet: {
           id: 111,
-          
+
           position: {
             latitude: 78,
             longitude: -122
