@@ -27,7 +27,6 @@ var Toilet = sequelize.define('Toilet', {
   free: Sequelize.BOOLEAN
 });
 
-<<<<<<< HEAD
 Toilet.sync({force: true}).then(function () {
   // Inert dummy data
   for (var i = 0; i < dummyCoords.length; i += 1) {
