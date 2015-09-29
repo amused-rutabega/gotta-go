@@ -1,17 +1,15 @@
 // var db = require('./db/db.js');
 
-
 // Helper function to validate coordinates
 // http://stackoverflow.com/questions/11475146/javascript-regex-to-validate-gps-coordinates
 var isValid = function (latitude, longitude){
   var checkLatitute = /^(-?[1-8]?\d(?:\.\d{1,18})?|90(?:\.0{1,18})?)$/;
   var checkLongitude = /^(-?(?:1[0-7]|[1-9])?\d(?:\.\d{1,18})?|180(?:\.0{1,18})?)$/;
+
   var validLatitute = checkLatitute.test(latitude);
   var validLongitude = checkLongitude.test(longitude);
-  if(validLatitute && validLongitude) {
-      return true;
-  }
-  return false;
+
+  return validLatitute && validLongitude;
 };
 
 exports.getToilets = function (req, cb) {
