@@ -6,9 +6,9 @@ describe('loading express', function () {
 
   beforeEach(function () {
     /* Using "really-need" module to prevent node module
-       system to cache javscript files by default to 
+       system to cache javscript files by default to
        avoid loading and compiling the same files mutiple times.
-       Doing this will ensure each test to start with a 
+       Doing this will ensure each test to start with a
        fresh server.
     */
     server = reallyNeed(__dirname + '/../server/server', {bustCache: true});
@@ -48,7 +48,18 @@ describe('loading express', function () {
     request(server)
       .post('/api/toilets')
       .send(postBody)
-      .expect(201, done);
+      .expect(201, {
+        message: 'toilet added',
+        toilet: {
+          position: {
+            latitude: 78,
+            longitude: -122
+          },
+          ratings: {
+            
+          }
+        }
+      }, done);
   });
 
   it('should reject post to /api/toilets if post body is not valid', function (done) {
