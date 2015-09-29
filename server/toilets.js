@@ -1,5 +1,6 @@
 var db = require('./db/db.js');
 var Toilet = db.Toilet;
+var sequelize = db.sequelize;
 
 // Helper function to validate coordinates
 // http://stackoverflow.com/questions/11475146/javascript-regex-to-validate-gps-coordinates
@@ -17,10 +18,22 @@ exports.getToilets = function (req, cb) {
   if(req.query.latitude && req.query.longitude && req.query.radius) {
     var latitude = req.query.latitude;
     var longitude = req.query.longitude;
-    // var r = req.query.radius;
+    var r = req.query.radius;
     if (isValid(latitude, longitude)) {
-      // TODO: query database and return real data
-      cb([]);
+      var query = "SELECT * FROM toilets WHERE earth_box(ll_to_earth(:latitude, :longitude), :radius) @> ll_to_earth(toilets.latitude, toilets.longitude);";
+
+      sequelize.query(query, {
+        replacements: {
+          latitude: latitude,
+          longitude: longitude,
+          radius: r
+        },
+
+        type: sequelize.QueryTypes.SELECT
+      })
+        .then(function (toilets) {
+          cb(toilets);
+        });
     } else {
       cb({ message: 'invalid coordinates given' });
     }
