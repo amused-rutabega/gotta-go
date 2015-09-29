@@ -20,7 +20,7 @@ exports.getToilets = function (req, cb) {
     var longitude = req.query.longitude;
     var r = req.query.radius;
     if (isValid(latitude, longitude)) {
-      var query = "SELECT * FROM toilets WHERE earth_box(ll_to_earth(:latitude, :longitude), :radius) @> ll_to_earth(toilets.latitude, toilets.longitude);";
+      var query = 'SELECT * FROM toilets WHERE earth_box(ll_to_earth(:latitude, :longitude), :radius) @> ll_to_earth(toilets.latitude, toilets.longitude);';
 
       sequelize.query(query, {
         replacements: {
