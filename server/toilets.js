@@ -81,22 +81,30 @@ exports.updateToilet = function (req, cb) {
       if (isValid(latitude, longitude)) {
         Toilet.find({where: {id: req.params.id}})
           .then(function (toilet) {
-            return toilet.updateAttributes({
-              latitude: latitude,
-              longitude: longitude
-            });
-          })
-          .then(function (toilet) {
-            toilet = {
-              position: {
+            if (toilet) {
+              return toilet.updateAttributes({
                 latitude: latitude,
                 longitude: longitude
-              },
+              });
+            } else {
+              cb(false, 'toilet was not found');
+            }
+          })
+          .then(function (toilet) {
+            if (toilet) {
+              toilet = {
+                position: {
+                  latitude: latitude,
+                  longitude: longitude
+                },
 
-              ratings: req.body.ratings
-            };
+                ratings: req.body.ratings
+              };
 
-            cb(true, 'toilet updated', toilet);
+              cb(true, 'toilet updated', toilet);
+            } else {
+              cb(false, 'toilet was not found');
+            }
           });
       } else {
         cb(false, 'invalid coords given');
