@@ -42,9 +42,9 @@ app.get('/api/toilets', function (req, res) {
 });
 
 app.post('/api/toilets', function (req, res) {
-  toilets.addToilet(req, function (success, message) {
+  toilets.addToilet(req, function (success, message, data) {
     if (success) {
-      res.status(201).json({ message: message });
+      res.status(201).json({ message: message, toilet: data });
     } else {
       res.status(400).json({ message: message });
     }
@@ -53,9 +53,9 @@ app.post('/api/toilets', function (req, res) {
 
 
 app.put('/api/toilets/:id', function (req, res) {
-  toilets.updateToilet(req, function (success, message) {
+  toilets.updateToilet(req, function (success, message, data) {
     if (success) {
-      res.status(201).json({ message: message });
+      res.status(201).json({ message: message, toilet: data });
     } else {
       res.status(400).json({ message: message });
     }
