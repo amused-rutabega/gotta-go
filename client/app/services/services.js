@@ -5,9 +5,9 @@ angular.module('gotta-go.services', [])
     get: function (latitude, longitude, radius) { //get toilet data objects from server
       return $http({
         method: 'GET',
-        url: '/api/toilets' 
-        + '?latitude=' + latitude 
-        + '&longitude=' + longitude 
+        url: '/api/toilets'
+        + '?latitude=' + latitude
+        + '&longitude=' + longitude
         + '&radius=' + radius
       })
       .then(function (response) {
