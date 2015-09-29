@@ -1,5 +1,6 @@
-/* this script parses data in 'dummyData.txt' and 
- * store them in coords, which is exported to seed the database
+/* This script parses the data in 'dummyData.txt' and 
+ * stores them in the coords array, which is then exported 
+ * to seed the database in db.js
  */
 
 var fs = require('fs');
@@ -14,6 +15,6 @@ for (var i = 0; i < lines.length; i += 1) {
   var longitude = parseFloat(data[3]);
   var coord = {latitude: latitude, longitude: longitude};
   coords.push(coord);
-};
+}
 
 module.exports = coords;
