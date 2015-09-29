@@ -14,7 +14,8 @@ var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAM
 sequelize.query('CREATE EXTENSION IF NOT EXISTS cube;');
 sequelize.query('CREATE EXTENSION IF NOT EXISTS earthdistance;');
 
-var Toilet = sequelize.define('Toilet', {
+// Tablename must be lowercase or our query for toilets in given radius won't work
+var Toilet = sequelize.define('toilet', {
   title: Sequelize.STRING,
   latitude: Sequelize.DECIMAL,
   longitude: Sequelize.DECIMAL,
