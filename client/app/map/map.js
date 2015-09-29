@@ -57,7 +57,7 @@ angular.module('gotta-go.map', [])
 
     Toilets.get(position.coords.latitude, 
       position.coords.longitude, 
-      600000 /* About half a mile 3000 guesstimate of default? */
+      120000 /* About half a mile 3000 guesstimate of default? */
     )
     .then(function (toilets) {
       $scope.toilets = toilets;
