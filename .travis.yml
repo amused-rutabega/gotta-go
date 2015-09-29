@@ -4,7 +4,10 @@ node_js:
 - 4.1.1
 before_script:
 - npm install -g gulp
+- psql -c 'create database travis;' -U postgres
 script: gulp
+addons:
+  postgresql: "9.3"
 deploy:
   provider: heroku
   api_key:
