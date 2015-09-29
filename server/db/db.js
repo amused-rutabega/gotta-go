@@ -11,9 +11,6 @@ var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAM
   }
 });
 
-sequelize.query('CREATE EXTENSION IF NOT EXISTS cube;');
-sequelize.query('CREATE EXTENSION IF NOT EXISTS earthdistance;');
-
 // Tablename must be lowercase or our query for toilets in given radius won't work
 var Toilet = sequelize.define('toilet', {
   title: Sequelize.STRING,
@@ -31,6 +28,9 @@ var Toilet = sequelize.define('toilet', {
 exports.Toilet = Toilet;
 exports.sequelize = sequelize;
 exports.sync = function () {
+  sequelize.query('CREATE EXTENSION IF NOT EXISTS cube;');
+  sequelize.query('CREATE EXTENSION IF NOT EXISTS earthdistance;');
+  
   return Toilet.sync({force: true}).then(function () {
     // Inert dummy data
     for (var i = 0; i < dummyCoords.length; i += 1) {
