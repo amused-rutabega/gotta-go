@@ -33,9 +33,25 @@ exports.addToilet = function (req, cb) {
   if (req.body.hasOwnProperty('position') && req.body.hasOwnProperty('ratings')) {
     var latitude = req.body.position.latitude;
     var longitude = req.body.position.longitude;
+
     if (isValid(latitude, longitude)) {
-      // TODO: add toilet to database
-      cb(true, 'toilet added');
+      Toilet.create({
+        latitude: latitude,
+        longitude: longitude
+      }).then(function (toilet) {
+        toilet = {
+          position: {
+            latitude: toilet.latitude,
+            longitude: toilet.longitude
+          },
+
+          ratings: {
+
+          }
+        };
+        
+        cb(true, 'toilet added', toilet);
+      });
     } else {
       cb(false, 'invalid coords given');
     }
