@@ -70,6 +70,8 @@ exports.addToilet = function (req, cb) {
         latitude: latitude,
         longitude: longitude
       }).then(function (toilet) {
+        toilet = toilet.toJSON();
+
         toilet = {
           id: toilet.id,
 
@@ -78,9 +80,7 @@ exports.addToilet = function (req, cb) {
             longitude: toilet.longitude
           },
 
-          ratings: {
-
-          }
+          ratings: _.omit(toilet, 'id', 'title', 'latitude', 'longitude', 'createdAt', 'updatedAt')
         };
 
         cb(true, 'toilet added', toilet);
@@ -112,6 +112,8 @@ exports.updateToilet = function (req, cb) {
           })
           .then(function (toilet) {
             if (toilet) {
+              toilet = toilet.toJSON();
+
               toilet = {
                 id: toilet.id,
 
@@ -120,7 +122,7 @@ exports.updateToilet = function (req, cb) {
                   longitude: longitude
                 },
 
-                ratings: req.body.ratings
+                ratings: _.omit(toilet, 'id', 'title', 'latitude', 'longitude', 'createdAt', 'updatedAt')
               };
 
               cb(true, 'toilet updated', toilet);
