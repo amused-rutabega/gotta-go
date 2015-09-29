@@ -49,7 +49,7 @@ exports.addToilet = function (req, cb) {
 
           }
         };
-        
+
         cb(true, 'toilet added', toilet);
       });
     } else {
@@ -66,8 +66,25 @@ exports.updateToilet = function (req, cb) {
       var latitude = req.body.position.latitude;
       var longitude = req.body.position.longitude;
       if (isValid(latitude, longitude)) {
-        // TODO: query db and update entry
-        cb(true, 'toilet updated');
+        Toilet.find({where: {id: req.params.id}})
+          .then(function (toilet) {
+            return toilet.updateAttributes({
+              latitude: latitude,
+              longitude: longitude
+            });
+          })
+          .then(function (toilet) {
+            toilet = {
+              position: {
+                latitude: latitude,
+                longitude: longitude
+              },
+
+              ratings: req.body.ratings
+            };
+
+            cb(true, 'toilet updated', toilet);
+          });
       } else {
         cb(false, 'invalid coords given');
       }
