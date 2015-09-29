@@ -54,11 +54,17 @@ describe('loading express', function () {
           id: 111,
 
           position: {
-            latitude: 78,
-            longitude: -122
+            latitude: "78",
+            longitude: "-122"
           },
           ratings: {
-
+            accessibility: null,
+            ambiance: null,
+            cleanliness: null,
+            familyFriendliness: null,
+            free: null,
+            privacy: null,
+            rating: null
           }
         }
       }, done);
