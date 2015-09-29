@@ -1,10 +1,6 @@
 var Sequelize = require('sequelize');
 var dummyCoords = require('./extractData');
 
-
-console.log(process.env.DATABASE);
-console.log(process.env.DATABASE_USERNAME);
-
 var sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
   host: process.env.DATABASE_SERVER,
   dialect: 'postgres',
