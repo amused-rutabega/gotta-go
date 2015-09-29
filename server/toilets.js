@@ -1,4 +1,5 @@
-// var db = require('./db/db.js');
+var db = require('./db/db.js');
+var Toilet = db.Toilet;
 
 // Helper function to validate coordinates
 // http://stackoverflow.com/questions/11475146/javascript-regex-to-validate-gps-coordinates
