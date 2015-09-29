@@ -5,7 +5,10 @@ angular.module('gotta-go.services', [])
     get: function (latitude, longitude, radius) { //get toilet data objects from server
       return $http({
         method: 'GET',
-        url: '/api/toilets' //we need the gps location and the desired radius here (?latitude=___?longitude=___?radius=___).
+        url: '/api/toilets' 
+        + '?latitude=' + latitude 
+        + '?longitude=' + longitude 
+        + '?radius=' + radius
       })
       .then(function (response) {
         return response.data;
