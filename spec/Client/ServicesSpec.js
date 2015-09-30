@@ -6,7 +6,7 @@ describe('gotta-go', function () {
   }));
 
   describe('Factory: Toilets', function () {
-    var $http, toilets, $httpBackend, requestHandler;
+    var toilets, $httpBackend, requestHandler;
 
     beforeEach(inject(function(Toilets) {
       toilets = Toilets;
@@ -49,7 +49,7 @@ describe('gotta-go', function () {
         expect(toilets.get).to.be.an.instanceOf(Function);
       });
 
-      xit('should make a get request with the correct params', function (done) {
+      xit('should make a get request with the correct params', function () {
         $httpBackend.expectGET('/api/toilets?latitude=37&longitude=-120&radius=3000');
         console.log(toilets.get);
         // toilets.get(37, -120, 3000).then(function (toilets) {
@@ -58,7 +58,7 @@ describe('gotta-go', function () {
         $httpBackend.flush();
       });
       
-    })
+    });
 
     describe('Toilets.add', function () {
       it('should be a function', function () {
