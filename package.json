@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node_modules/.bin/nodemon server/server.js",
     "test": "mocha -R spec spec/ServerSpec.js && karma start karma.conf.js",
-    "postinstall": "npm install -g bower && bower install && cp client/config.example.js client/config.js",
+    "postinstall": "npm install -g bower && bower install && cp -n client/config.example.js client/config.js",
     "getGeoData": "node ./node_modules/geoip-lite/scripts/updatedb.js"
   },
   "repository": {
