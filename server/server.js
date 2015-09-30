@@ -8,11 +8,16 @@ var bodyParser = require('body-parser');
 // Import our helpers
 var toilets = require('./toilets.js');
 
+// Geolocator based on ip address
+var geoip = require('geoip-lite');
+
 // Create an express application
 var app = express();
 
 // Set the port
 app.set('port', process.env.PORT || 8080);
+
+app.enable('trust proxy');
 
 var db = require('./db/db');
 
@@ -51,6 +56,12 @@ app.use(express.static(__dirname + '/../client'));
 // Serve app page
 app.get('/', function (req, res) {
   res.status(200).sendFile('./client/index.html');
+});
+
+app.get('/location.js', function (req, res) {
+  res.set('Content-Type', 'text/javascript');
+
+  res.status(200).send('var GEO_DATA = ' + geoip.lookup(req.ip) + ';');
 });
 
 app.get('/api/toilets', function (req, res) {
