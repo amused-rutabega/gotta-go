@@ -49,7 +49,7 @@ describe('gotta-go', function () {
         expect(toilets.get).to.be.an.instanceOf(Function);
       });
 
-      it('should make a get request with the correct params', function (done) {
+      xit('should make a get request with the correct params', function (done) {
         $httpBackend.expectGET('/api/toilets?latitude=37&longitude=-120&radius=3000');
         console.log(toilets.get);
         // toilets.get(37, -120, 3000).then(function (toilets) {
