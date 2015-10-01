@@ -1,0 +1,30 @@
+<form ng-submit="addToilet()" >
+    <p class="range-field col s8 l6">
+      <label>Cleanliness</label>
+      <input type="range" ng-model="toilet.ratings.cleanliness" min="1" max="5" />
+    </p>
+    <p class="range-field col s8 l6">
+      <label>Privacy</label>
+      <input type="range" ng-model="toilet.ratings.privacy" min="1" max="5" />
+    </p>
+    <p class="range-field col s8 l6">
+      <label>Accessability</label>
+      <input type="range" ng-model="toilet.ratings.accessability" min="1" max="5" />
+    </p>
+    <p class="range-field col s8 l6">
+      <label>Family Friendliness</label>
+      <input type="range" ng-model="toilet.ratings.fFriendliness" min="1" max="5" />
+    </p>
+    <p class="range-field col s8 l6">
+      <label>Ambiance</label>
+      <input type="range" ng-model="toilet.ratings.ambiance" min="1" max="5" />
+    </p>
+    <p class="range-field col s8 l6">
+      <label>Free</label>
+      <input type="range" ng-model="toilet.ratings.free" min="0" max="1" />
+    </p>
+    <input type="submit" value="Add Toilet" />
+</form>
+<!-- 
+<form action="#">
+</form> -->
