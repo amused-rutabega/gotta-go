@@ -9,7 +9,7 @@ angular.module('gotta-go.map', [])
     icon: ' ',
     // need to work on resizing this icon
     labelContent: '<i class="material-icons" style="color: #009688;">place</i>'
-  }
+  };
 
   navigator.geolocation.watchPosition(function (position) {
     // Update current user's position

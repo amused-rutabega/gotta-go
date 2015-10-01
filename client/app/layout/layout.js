@@ -20,12 +20,12 @@ angular.module('gotta-go.layout', [])
 
     $state.go('addToilet');
 
-  }
+  };
 
   $scope.addToilet = function () {
     Toilets.add($scope.toilet)
     .then(function (data) {
       console.log(data);
     });
-  }
+  };
 });
