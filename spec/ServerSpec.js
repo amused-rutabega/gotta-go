@@ -51,7 +51,7 @@ describe('loading express', function () {
       .expect(201, {
         message: 'toilet added',
         toilet: {
-          id: 111,
+          id: 51,
 
           position: {
             latitude: '78',

@@ -55,6 +55,7 @@ angular.module('gotta-go.map', [])
       });
     });
 
+    // request toilets from server
     Toilets.get(position.coords.latitude, 
       position.coords.longitude, 
       120000 /* About half a mile 3000 guesstimate of default? */
@@ -62,23 +63,5 @@ angular.module('gotta-go.map', [])
     .then(function (toilets) {
       $scope.toilets = toilets;
     });
-
-    // Dummy data for toilet markers
-    // $scope.toilets = [
-    //   {
-    //     id: 0,
-    //     coords: {
-    //       latitude: 37.7827097,
-    //       longitude: -122.4080675
-    //     }
-    //   },
-    //   {
-    //     id: 1,
-    //     coords: {
-    //       latitude: 37.7847097,
-    //       longitude: -122.4080675
-    //     }
-    //   },
-    // ];
   });
 });
