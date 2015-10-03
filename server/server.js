@@ -19,6 +19,9 @@ app.set('port', process.env.PORT || 8080);
 
 app.enable('trust proxy');
 
+// Use ejs for basic templating
+app.set('view engine', 'ejs');
+
 var db = require('./db/db');
 
 // Before the server can handle any requests it must first sync the database.
@@ -55,7 +58,7 @@ app.use(express.static(__dirname + '/../client'));
 
 // Serve app page
 app.get('/', function (req, res) {
-  res.status(200).sendFile('./client/index.html');
+  res.status(200).render('index', {secure: req.secure});
 });
 
 app.get('/location.js', function (req, res) {
