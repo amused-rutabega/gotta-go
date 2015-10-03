@@ -21,6 +21,7 @@ app.enable('trust proxy');
 
 // Use ejs for basic templating
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 var db = require('./db/db');
 
