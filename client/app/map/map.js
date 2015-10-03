@@ -2,15 +2,6 @@ angular.module('gotta-go.map', [])
 
 .controller('MapController', function ($scope, uiGmapIsReady, $rootScope, Toilets) {
   var marker;
-  $scope.locatorVisible = /*$rootScope.locatorVisible =*/ false;
-  $scope.options = {
-    // this is toggling when $scope.center forces a redraw
-    visible: false,
-    icon: ' ',
-    // need to work on resizing this icon
-    labelContent: '<i class="material-icons" style="color: #009688;">place</i>',
-    labelClass: 'selectorMarker'
-  };
 
   navigator.geolocation.watchPosition(function (position) {
     // Update current user's position
