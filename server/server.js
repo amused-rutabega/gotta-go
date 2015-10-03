@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
 app.get('/location.js', function (req, res) {
   res.set('Content-Type', 'text/javascript');
 
-  res.status(200).send('var GEO_DATA = ' + geoip.lookup(req.ip) + ';');
+  res.status(200).send('var GEO_DATA = ' + JSON.stringify(geoip.lookup(req.ip)) + ';');
 });
 
 app.get('/api/toilets', function (req, res) {
