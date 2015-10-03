@@ -1,6 +1,6 @@
 angular.module('gotta-go.toilet', [])
 
-.controller('AddToiletController', function ($scope) {
+.controller('AddToiletController', function ($scope, Toilets) {
   $scope.ready = false;
 
   $scope.toilet = {
@@ -16,5 +16,12 @@ angular.module('gotta-go.toilet', [])
 
   $scope.showForm = function () {
     $scope.ready = true;
-  }
+  };
+
+  $scope.addToilet = function () {
+    Toilets.add($scope.toilet)
+    .then(function (data) {
+      console.log(data);
+    });
+  };
 });
