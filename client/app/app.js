@@ -17,7 +17,7 @@ angular.module('gotta-go', [
         controller: 'MapController'
       })
       .state('addToilet', {
-        url: '/',
+        url: '/toilet/add',
         templateUrl: '/app/layout/addtoilet.html',
         controller: 'LayoutController'
       });
