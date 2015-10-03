@@ -11,6 +11,14 @@ angular.module('gotta-go.map', [])
     labelContent: '<i class="material-icons" style="color: #009688;">place</i>'
   };
 
+  // Use the GEO_DATA provided by the server
+  if (GEO_DATA) {
+    $rootScope.center = {
+      latitude: GEO_DATA.ll[0],
+      longitude: GEO_DATA.ll[1]
+    };
+  }
+
   navigator.geolocation.watchPosition(function (position) {
     // Update current user's position
     $rootScope.location = {
@@ -65,8 +73,8 @@ angular.module('gotta-go.map', [])
     });
 
     // request toilets from server
-    Toilets.get(position.coords.latitude, 
-      position.coords.longitude, 
+    Toilets.get(position.coords.latitude,
+      position.coords.longitude,
       120000 /* About half a mile 3000 guesstimate of default? */
     )
     .then(function (toilets) {
