@@ -15,10 +15,10 @@ angular.module('gotta-go.layout', [])
     // this will show a pin to slide map to toilet location
     // there will be an additional button created to render the inputView
 
-    //for now we will render that view directly and assume that 
+    //for now we will render that view directly and assume that
     //the user is placing the new toilet at the current map center
 
-    $state.go('addToilet');
+    $state.go('home.addToilet');
 
   };
 
