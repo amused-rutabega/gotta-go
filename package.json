@@ -21,6 +21,7 @@
   "homepage": "https://github.com/brianleungwh/thesecrettoiletsofsf#readme",
   "dependencies": {
     "body-parser": "^1.14.0",
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
     "geoip-lite": "^1.1.6",
     "morgan": "^1.6.1",
