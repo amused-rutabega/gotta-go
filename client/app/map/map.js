@@ -8,7 +8,8 @@ angular.module('gotta-go.map', [])
     visible: false,
     icon: ' ',
     // need to work on resizing this icon
-    labelContent: '<i class="material-icons" style="color: #009688;">place</i>'
+    labelContent: '<i class="material-icons" style="color: #009688;">place</i>',
+    labelClass: 'selectorMarker'
   };
 
   navigator.geolocation.watchPosition(function (position) {
@@ -65,8 +66,8 @@ angular.module('gotta-go.map', [])
     });
 
     // request toilets from server
-    Toilets.get(position.coords.latitude, 
-      position.coords.longitude, 
+    Toilets.get(position.coords.latitude,
+      position.coords.longitude,
       120000 /* About half a mile 3000 guesstimate of default? */
     )
     .then(function (toilets) {
