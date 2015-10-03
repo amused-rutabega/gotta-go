@@ -43,3 +43,9 @@ html, body {
 .row {
   margin-bottom: 5px;
 }
+
+/* Use when the overlay controls get in the way */
+.raiseToTop {
+  z-index: 2;
+  position: relative; /* In order for z-index to to take affect the element needs to have it's position property explicitly declared */
+}
