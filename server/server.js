@@ -96,7 +96,7 @@ app.put('/api/toilets/:id', function (req, res) {
 });
 
 // 404 Handler
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.status(200).render('index', {secure: req.secure});
 });
 
