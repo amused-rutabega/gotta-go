@@ -175,10 +175,10 @@ describe('loading express', function () {
   });
 
 
-  it('shoud 404 everything else', function (done) {
+  it('shoud render index for everything else', function (done) {
     request(server)
       .get('/some/path/')
-      .expect(404, done);
+      .expect(200, done);
   });
 
 });
