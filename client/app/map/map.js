@@ -11,14 +11,6 @@ angular.module('gotta-go.map', [])
     labelContent: '<i class="material-icons" style="color: #009688;">place</i>'
   };
 
-  // Use the GEO_DATA provided by the server
-  if (GEO_DATA) {
-    $rootScope.center = {
-      latitude: GEO_DATA.ll[0],
-      longitude: GEO_DATA.ll[1]
-    };
-  }
-
   navigator.geolocation.watchPosition(function (position) {
     // Update current user's position
     $rootScope.location = {
@@ -62,6 +54,14 @@ angular.module('gotta-go.map', [])
 
     uiGmapIsReady.promise().then(function (instances) {
       $rootScope.map = instances[0].map;
+
+      // Use the GEO_DATA provided by the server
+      if (GEO_DATA) {
+        $rootScope.center = {
+          latitude: GEO_DATA.ll[0],
+          longitude: GEO_DATA.ll[1]
+        };
+      }
 
       // Draw marker for current users's position
       marker = new MarkerWithLabel({
