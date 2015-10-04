@@ -55,6 +55,14 @@ angular.module('gotta-go.map', [])
     uiGmapIsReady.promise().then(function (instances) {
       $rootScope.map = instances[0].map;
 
+      // Use the GEO_DATA provided by the server
+      if (GEO_DATA) {
+        $rootScope.center = {
+          latitude: GEO_DATA.ll[0],
+          longitude: GEO_DATA.ll[1]
+        };
+      }
+
       // Draw marker for current users's position
       marker = new MarkerWithLabel({
         position: $scope.location,
@@ -65,8 +73,8 @@ angular.module('gotta-go.map', [])
     });
 
     // request toilets from server
-    Toilets.get(position.coords.latitude, 
-      position.coords.longitude, 
+    Toilets.get(position.coords.latitude,
+      position.coords.longitude,
       120000 /* About half a mile 3000 guesstimate of default? */
     )
     .then(function (toilets) {

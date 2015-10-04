@@ -26,6 +26,7 @@
         "angular": false,
         "GOOGLE_API_KEY": false,
         "xit": false,
-        "MarkerWithLabel": false
+        "MarkerWithLabel": false,
+        "GEO_DATA": false
     }
 }
