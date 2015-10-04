@@ -3,6 +3,7 @@ angular.module('gotta-go', [
   'uiGmapgoogle-maps',
   'gotta-go.map',
   'gotta-go.layout',
+  'gotta-go.toilet',
   'gotta-go.services'
 ])
 
@@ -16,10 +17,10 @@ angular.module('gotta-go', [
         templateUrl: '/app/map/map.html',
         controller: 'MapController'
       })
-      .state('addToilet', {
-        url: '/',
-        templateUrl: '/app/layout/addtoilet.html',
-        controller: 'LayoutController'
+      .state('home.addToilet', {
+        url: 'toilet/add',
+        templateUrl: '/app/toilet/addtoilet.html',
+        controller: 'AddToiletController'
       });
 
     // .state('home', {

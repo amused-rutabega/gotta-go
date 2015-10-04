@@ -49,3 +49,7 @@ html, body {
   z-index: 2;
   position: relative; /* In order for z-index to to take affect the element needs to have it's position property explicitly declared */
 }
+
+.selectorMarker i {
+  font-size: 60px;
+}

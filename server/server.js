@@ -95,6 +95,11 @@ app.put('/api/toilets/:id', function (req, res) {
   });
 });
 
+// 404 Handler
+app.use(function (req, res) {
+  res.status(200).render('index', {secure: req.secure});
+});
+
 var server = app.listen(app.get('port'), function () {
   var port = server.address().port;
   console.log('listening on port ' + port);
