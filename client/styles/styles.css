@@ -61,5 +61,12 @@ html, body {
   background-color: white;
   height: 100%;
   padding: 10px;
-  opacity: 0.9;
+  opacity: 0;
+  left: -25%;
+  transition: left 0.5s, opacity 0.5s;
+}
+
+.addToiletForm.visible {
+  opacity: 1;
+  left: 0;
 }
