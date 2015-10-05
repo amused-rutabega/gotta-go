@@ -1,6 +1,6 @@
 angular.module('gotta-go.layout', [])
 
-.controller('LayoutController', function($scope, $state, Toilets) {
+.controller('LayoutController', function($scope, $state, $rootScope, Toilets) {
   $scope.$state = $state;
 
   $scope.toilet = {
@@ -23,6 +23,8 @@ angular.module('gotta-go.layout', [])
   };
 
   $scope.addToilet = function () {
+    $scope.toilet.position = $rootScope.center;
+    
     Toilets.add($scope.toilet)
     .then(function (data) {
       console.log(data);
