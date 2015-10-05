@@ -8,6 +8,6 @@ angular.module('gotta-go.toilet', [])
     labelClass: 'selectorMarker',
 
     labelAnchor: '30 50',
-    zIndex: 223 // Smallest number so that it is ontop of the current user position marker
+    zIndex: 9999999999999 // Large number so that it is always ontop of the current user position marker
   };
 });
