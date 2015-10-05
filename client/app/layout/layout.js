@@ -19,7 +19,11 @@ angular.module('gotta-go.layout', [])
   };
 
   $scope.toggleLocator = function () {
-    $state.go('home.addToilet');
+    if (!$state.is('home.addToilet')) {
+      $state.go('home.addToilet');
+    } else {
+      $state.go('home');
+    }
   };
 
   $scope.addToilet = function () {
