@@ -24,10 +24,11 @@ angular.module('gotta-go.layout', [])
 
   $scope.addToilet = function () {
     $scope.toilet.position = $rootScope.center;
-    
+
     Toilets.add($scope.toilet)
     .then(function (data) {
-      console.log(data);
+      $rootScope.toilets.push(data.toilet);
+      $state.go('home');
     });
   };
 });
