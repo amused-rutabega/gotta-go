@@ -45,6 +45,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+// Use env var for GOOGLE_API_KEY
 app.use(function (req, res, next) {
   if (process.env.NODE_ENV === 'production' && req.url === '/config.js') {
     res.set('Content-Type', 'text/javascript');
