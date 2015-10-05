@@ -70,3 +70,11 @@ html, body {
   opacity: 1;
   left: 0;
 }
+
+i.animate {
+  transition: transform 0.5s;
+}
+
+i.rotate {
+  transform: rotate(405deg);
+}
