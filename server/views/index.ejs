@@ -19,17 +19,48 @@
   </head>
 
   <body ng-app="gotta-go">
-    <div class="overlay-controls" ng-controller="LayoutController">
-      <div class="row">
-        <div class="col s9 l11">&nbsp;</div>
-        <div class="col s3 l1">
-          <a class="btn-floating waves-effect white" ng-click="centerOnLocation()"><i class="material-icons" style="color: #727272;">gps_fixed</i></a>
-        </div>
+    <div ng-controller="LayoutController">
+      <div class="addToiletForm" ng-show="$state.is('home.addToilet')">
+        <form ng-submit="addToilet()" class="raiseToTop">
+            <p class="range-field col s8 l6">
+              <label>Cleanliness</label>
+              <input type="range" ng-model="toilet.ratings.cleanliness" min="1" max="5" />
+            </p>
+            <p class="range-field col s8 l6">
+              <label>Privacy</label>
+              <input type="range" ng-model="toilet.ratings.privacy" min="1" max="5" />
+            </p>
+            <p class="range-field col s8 l6">
+              <label>Accessability</label>
+              <input type="range" ng-model="toilet.ratings.accessability" min="1" max="5" />
+            </p>
+            <p class="range-field col s8 l6">
+              <label>Family Friendliness</label>
+              <input type="range" ng-model="toilet.ratings.familyFriendliness" min="1" max="5" />
+            </p>
+            <p class="range-field col s8 l6">
+              <label>Ambiance</label>
+              <input type="range" ng-model="toilet.ratings.ambiance" min="1" max="5" />
+            </p>
+            <p class="col s8 l6" style="padding-left: 10px;">
+              <input id="free" type="checkbox" ng-model="toilet.ratings.free" />
+              <label for="free">Free</label>
+            </p>
+            <input class="btn waves-effect waves-light" type="submit" value="Add Toilet" />
+        </form>
       </div>
-      <div class="row">
-        <div class="col s9 l11">&nbsp;</div>
-        <div class="col s3 l1">
-          <a class="btn-floating waves-effect waves-light" ng-click="toggleLocator()"><i class="material-icons">add</i></a>
+      <div class="overlay-controls">
+        <div class="row">
+          <div class="col s9 l11">&nbsp;</div>
+          <div class="col s3 l1">
+            <a class="btn-floating waves-effect white" ng-click="centerOnLocation()"><i class="material-icons" style="color: #727272;">gps_fixed</i></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s9 l11">&nbsp;</div>
+          <div class="col s3 l1">
+            <a class="btn-floating waves-effect waves-light" ng-click="toggleLocator()"><i class="material-icons">add</i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -37,7 +68,7 @@
 
     <script type="text/javascript" src="/bower_components/lodash/lodash.min.js"></script>
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script type="text/javascript" src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
