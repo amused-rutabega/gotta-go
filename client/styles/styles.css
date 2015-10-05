@@ -53,3 +53,40 @@ html, body {
 .selectorMarker i {
   font-size: 60px;
 }
+
+.addToiletForm {
+  position: absolute;
+  z-index: 2;
+  width: 25%;
+  background-color: white;
+  height: 100%;
+  padding: 10px;
+  opacity: 0;
+  left: -25%;
+  transition: left 0.5s, opacity 0.5s;
+}
+
+.addToiletForm.visible {
+  opacity: 1;
+  left: 0;
+}
+
+i.animate {
+  transition: transform 0.5s;
+}
+
+i.rotate {
+  transform: rotate(405deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .addToiletForm {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .addToiletForm {
+    width: 40%;
+  }
+}

@@ -70,7 +70,7 @@ angular.module('gotta-go.map', [])
       120000 /* About half a mile 3000 guesstimate of default? */
     )
     .then(function (toilets) {
-      $scope.toilets = toilets;
+      $rootScope.toilets = toilets;
     });
   });
 });
