@@ -47,6 +47,10 @@ exports.sync = function () {
         rating: 5,
         ambiance: 5,
         free: true
+      }, {
+        logging: function () {
+          // We don't want to pollute our log
+        }
       });
     }
     console.log('database initialized and dummy data are loaded');
