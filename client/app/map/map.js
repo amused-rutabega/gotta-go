@@ -3,6 +3,8 @@ angular.module('gotta-go.map', [])
 .controller('MapController', function ($scope, uiGmapIsReady, $rootScope, Toilets, uiGmapGoogleMapApi) {
   var marker;
 
+  $rootScope.zoom = 16;
+
   uiGmapGoogleMapApi.then(function () {
     // Use the GEO_DATA provided by the server
     if (GEO_DATA) {
@@ -52,8 +54,6 @@ angular.module('gotta-go.map', [])
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
     };
-
-    $rootScope.zoom = 16;
 
     uiGmapIsReady.promise().then(function (instances) {
       $rootScope.map = instances[0].map;
