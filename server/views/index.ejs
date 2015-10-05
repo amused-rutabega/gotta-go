@@ -47,6 +47,17 @@
               <label for="free">Free</label>
             </p>
             <button class="btn waves-effect waves-light" type="submit">Add Toilet</button>
+            <div class="preloader-wrapper big active" ng-show="submittingData">
+              <div class="spinner-layer spinner-teal-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
         </form>
       </div>
       <div class="overlay-controls">

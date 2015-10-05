@@ -14,6 +14,8 @@ angular.module('gotta-go.layout', [])
     }
   };
 
+  $scope.submittingData = false;
+
   $scope.centerOnLocation = function () {
     $scope.map.panTo($scope.location);
   };
@@ -29,8 +31,12 @@ angular.module('gotta-go.layout', [])
   $scope.addToilet = function () {
     $scope.toilet.position = $rootScope.center;
 
+    $scope.submittingData = true;
+
     Toilets.add($scope.toilet)
     .then(function (data) {
+      $scope.submittingData = false;
+
       $rootScope.toilets.push(data.toilet);
       $state.go('home');
     });
