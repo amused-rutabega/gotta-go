@@ -42,25 +42,30 @@ npm install
 bower install
 ```
 ### Running the app on local server
-To run the app on your local server, you will need to do the following.
+To run the app on your local server:
 
 1. Derive an API key from [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/)
 2. Setup a postgres database on your local machine
 
 ###### Setting up the API
-Assuming you have an API key in hand, go to `config.example.js` under the `client` directory and replace `YOUR_API_KEY_HERE` with your key and rename the file to `config.js`.
+Assuming you have an API key in hand, go to `config.js` under the `client` directory and replace `YOUR_API_KEY_HERE` with your key.
 
 ###### Setting up postgresql database
-To install postgresql, run `$ brew install postgresql`. If all went smooth, you can run 
+Run 
+```sh
+$ brew install postgresql
+```
+Then, to start the postgre server, run
 ```sh
 $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ```
-to start the postgres server. After that, you would login to the server by doing `$ psql` in your terminal. Once you're in, you can create a database by running
+Then, create the a database by running
 ```sh
-create database gottago;
+createdb gottago
 ```
 After you have created a new database, you need to make a `.bash_profile` in the root directory and declare the following variables.
 ```sh
+# .bash_profile
 export DATABASE='<database you created>'
 export DATABASE_USERNAME='<username you created the database with>'
 export DATABASE_SERVER='localhost'
@@ -71,11 +76,13 @@ After saving the `.bash_profile`, you can try to start the server by running
 $ source .bash_profile
 $ npm start
 ```
-Make sure to run `source .bash_profile` first. This sets up your environment variables so that the database connection can be established properly. If all went smooth, you can access the app at `127.0.0.1/8080`. When finished, run
+Make sure to run `source .bash_profile` first, otherwise none of the environment variables will exist and the database connection will no established properly.
+By default, you can access the app at `http://localhost:8080`. 
+
+When finished, stop the postgres server by running
 ```sh
 pg_ctl -D /usr/local/var/postgres stop -s -m fast
 ```
-to stop the postgres server.
 
 ### Roadmap
 
