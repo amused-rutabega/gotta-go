@@ -3,7 +3,7 @@ node_js:
 - '0.10'
 - 4.1.1
 before_script:
-- npm install -g gulp
+- npm install -g gulp bower
 script: gulp
 addons:
   postgresql: "9.3"
