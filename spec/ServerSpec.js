@@ -1,5 +1,6 @@
 var request = require('supertest');
 var reallyNeed = require('really-need');
+var chai = require('chai');
 
 describe('loading express', function () {
   var server;
@@ -48,26 +49,14 @@ describe('loading express', function () {
     request(server)
       .post('/api/toilets')
       .send(postBody)
-      .expect(201, {
-        message: 'toilet added',
-        toilet: {
-          id: 51,
+      .expect(201, function (err, res) {
+        chai.expect(res.body.toilet.position.latitude).to.equal('78');
+        chai.expect(res.body.toilet.position.longitude).to.equal('-122');
 
-          position: {
-            latitude: '78',
-            longitude: '-122'
-          },
-          ratings: {
-            accessibility: null,
-            ambiance: null,
-            cleanliness: 5,
-            familyFriendliness: null,
-            free: null,
-            privacy: 4,
-            rating: null
-          }
-        }
-      }, done);
+        chai.expect(res.body.toilet.ratings.cleanliness).to.equal(5);
+        chai.expect(res.body.toilet.ratings.privacy).to.equal(4);
+        done();
+      });
   });
 
   it('should reject post to /api/toilets if post body is not valid', function (done) {
