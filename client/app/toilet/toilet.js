@@ -7,6 +7,7 @@ angular.module('gotta-go.toilet', [])
     labelContent: '<i class="material-icons" style="color: #009688;">place</i>',
     labelClass: 'selectorMarker',
 
-    labelAnchor: '30 50'
+    labelAnchor: '30 50',
+    zIndex: 223 // Smallest number so that it is ontop of the current user position marker
   };
 });
