@@ -69,7 +69,7 @@ angular.module('gotta-go.map', [])
     // request toilets from server
     Toilets.get(position.coords.latitude,
       position.coords.longitude,
-      750 /* About half a mile 3000 guesstimate of default? */
+      750
     )
     .then(function (toilets) {
       $rootScope.toilets = toilets;
