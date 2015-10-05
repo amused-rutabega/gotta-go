@@ -1,4 +1,28 @@
 <ui-gmap-google-map center='center' zoom='zoom'>
-  <ui-gmap-markers models='toilets' idkey='id' coords='"position"'></ui-gmap-markers>
+  <ui-gmap-markers models='toilets' idkey='id' coords='"position"'>
+    <ui-gmap-windows>
+        <div ng-non-bindable>
+          Accessibility: {{ this.ratings.accessibility }}
+          <br>
+          Ambiance: {{ this.ratings.ambiance }}
+          <br>
+          Cleanliness: {{ this.ratings.cleanliness }}
+          <br>
+          Familiy Friendliness: {{ this.ratings.familyFriendliness }}
+          <br>
+          Privacy: {{ this.ratings.familyFriendliness }}
+          <br>
+          Rating: {{ this.ratings.rating }}
+          <br>
+          Free: {{ this.ratings.free }}
+        </div>
+    </ui-gmap-windows>
+  </ui-gmap-markers>
   <div ui-view></div>
 </ui-gmap-google-map>
+<!-- 
+ng-non-bindable is needed for the ui-gmap-windows directive 
+so that "this" can be binded to the marker instance
+that was clicked on instead of the global model
+$scope that Angular does by default.
+-->
