@@ -4,6 +4,7 @@ angular.module('gotta-go.map', [])
   var marker;
 
   $rootScope.zoom = 16;
+  $rootScope.toilets = [];
 
   uiGmapGoogleMapApi.then(function () {
     // Use the GEO_DATA provided by the server
