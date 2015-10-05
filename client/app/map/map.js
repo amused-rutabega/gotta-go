@@ -19,7 +19,7 @@ angular.module('gotta-go.map', [])
         icon: ' ',
         map: $scope.map,
         labelContent: '<i class="material-icons" style="color: #4285F4;">radio_button_checked</i>',
-        labelAnchor: {x: 12, y: 24}
+        labelAnchor: {x: 12, y: 8}
       });
 
       marker.setMap($scope.map);
@@ -62,7 +62,7 @@ angular.module('gotta-go.map', [])
         icon: ' ',
         map: $scope.map,
         labelContent: '<i class="material-icons" style="color: #4285F4;">radio_button_checked</i>',
-        labelAnchor: {x: 12, y: 24}
+        labelAnchor: {x: 12, y: 8}
       });
     });
 
