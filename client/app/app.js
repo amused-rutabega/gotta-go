@@ -7,8 +7,8 @@ angular.module('gotta-go', [
   'gotta-go.services'
 ])
 
-.config(['uiGmapGoogleMapApiProvider', '$urlRouterProvider', '$stateProvider', '$locationProvider',
-  function (GoogleMapApiProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
+.config(['uiGmapGoogleMapApiProvider', '$stateProvider', '$locationProvider',
+  function (GoogleMapApiProvider, $stateProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider
@@ -23,12 +23,7 @@ angular.module('gotta-go', [
         controller: 'AddToiletController'
       });
 
-    // .state('home', {
-    //   url: '/',
-    //   templateUrl: '/app/map/map.html',
-    //   controller: 'MapController'
-    // });
-
+    // GOOGLE_API_KEY must be defined in .bash_profile for development SEE README
     GoogleMapApiProvider.configure({
       key: GOOGLE_API_KEY
     });
