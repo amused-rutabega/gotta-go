@@ -7,7 +7,7 @@ angular.module('gotta-go.layout', [])
     ratings: {
       cleanliness: 1,
       ambiance: 1,
-      accessability: 1,
+      accessibility: 1,
       privacy: 1,
       familyFriendliness: 1,
       free: true
